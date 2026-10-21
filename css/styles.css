@@ -1919,28 +1919,7 @@ button, input, textarea, select {
   }
 
   .mobile-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 75px;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    flex-direction: column;
-    padding: 2rem;
-    box-shadow: var(--shadow-xl);
-    border-bottom: 1px solid var(--color-border);
-    display: none;
-  }
-
-  .nav-menu.open {
     display: flex;
-  }
-
-  .stats-card-grid {
-    grid-template-columns: 1fr;
   }
 
   .strategy-points {
@@ -1958,17 +1937,7 @@ button, input, textarea, select {
     grid-template-columns: 1fr;
   }
 
-  .admissions-content,
-  .admissions-form-box,
-  .contact-form-panel {
-    padding: 2rem 1.5rem;
-  }
-
   .footer-top-grid {
     grid-template-columns: 1fr;
-  }
-
-  .floating-badge {
-    display: none;
   }
 }
