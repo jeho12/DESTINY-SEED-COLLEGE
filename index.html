@@ -16,8 +16,41 @@
   
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/enhancements.css">
 </head>
 <body>
+
+  <!-- ===================================================================
+       0. SALES DEMO BAR & LIVE THEME SWITCHER (Crestfield Engine)
+       =================================================================== -->
+  <div class="demo-bar">
+    <div class="container demo-bar-inner">
+      <div class="demo-bar-left">
+        <span class="demo-pill"><i class="fas fa-sparkles"></i> Live Demo</span>
+        <span class="demo-tagline"><strong>Destiny Seeds Unified Infrastructure</strong> &bull; Interactive Multi-School Portal</span>
+      </div>
+      <div class="demo-bar-right">
+        <div class="theme-switcher-group">
+          <span class="theme-label"><i class="fas fa-palette"></i> Theme:</span>
+          <button type="button" class="theme-chip active" data-theme="navy" title="Classic Destiny Navy & Gold">
+            <span class="theme-dot navy"></span> Royal Navy
+          </button>
+          <button type="button" class="theme-chip" data-theme="emerald" title="Emerald Sprout & Gold">
+            <span class="theme-dot emerald"></span> Emerald Sprout
+          </button>
+          <button type="button" class="theme-chip" data-theme="oxford" title="Oxford Imperial & Crimson">
+            <span class="theme-dot oxford"></span> Oxford Prestige
+          </button>
+        </div>
+        <button type="button" class="btn-demo-pitch trigger-presentation-modal" title="Open Management Pitch Deck Notes">
+          <i class="fas fa-chalkboard-teacher"></i> <span>Pitch Notes</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
 
   <!-- ===================================================================
        TOP ANNOUNCEMENT BAR & UNIFIED DOMAIN BADGE
@@ -29,7 +62,7 @@
         <span><strong>Admissions Open 2026/2027:</strong> Entrance assessments ongoing for Nursery, Primary & College.</span>
       </div>
       <div class="top-bar-links">
-        <a href="tel:+2348000000000" class="top-contact-item">
+        <a href="tel:+2348031234567" class="top-contact-item">
           <i class="fas fa-phone-alt"></i> +234 (0) 803 123 4567
         </a>
         <a href="mailto:info@destinyseeds.edu.ng" class="top-contact-item">
@@ -43,12 +76,12 @@
   </div>
 
   <!-- ===================================================================
-       MAIN HEADER & NAVIGATION
+       MAIN HEADER & SLIDE-OVER DRAWER NAVIGATION
        =================================================================== -->
   <header class="main-header">
     <div class="container navbar">
       <!-- School Identity / Crest Logo -->
-      <a href="#" class="brand-identity" aria-label="Destiny Seeds Homepage">
+      <a href="index.html" class="brand-identity" aria-label="Destiny Seeds Homepage">
         <!-- Custom High-Res Vector Crest Logo -->
         <svg class="brand-crest" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Shield Base -->
@@ -69,12 +102,28 @@
         </div>
       </a>
 
-      <!-- Desktop Nav Menu -->
+      <!-- Desktop Nav Menu & Mobile Off-Canvas Drawer -->
       <nav class="nav-menu" id="navMenu">
+        <!-- Drawer Header for Mobile -->
+        <div class="nav-drawer-top">
+          <div class="brand-identity">
+            <svg class="brand-crest brand-crest-sm" viewBox="0 0 100 100" fill="none">
+              <path d="M50 4L14 18V50C14 74 50 95 50 95C50 95 86 74 86 50V18L50 4Z" fill="#0B1F48" stroke="#F59E0B" stroke-width="4"/>
+              <path d="M50 66C50 66 38 56 38 43C38 34 46 32 50 25C54 32 62 34 62 43C62 56 50 66 50 66Z" fill="#F59E0B"/>
+              <path d="M30 68C36 65 44 65 50 68C56 65 64 65 70 68V75C64 72 56 72 50 75C44 72 36 72 30 75V68Z" fill="#FFFFFF"/>
+            </svg>
+            <div class="brand-text">
+              <h1>Destiny Seeds</h1>
+              <p>Nursery &bull; Primary &bull; College</p>
+            </div>
+          </div>
+          <button type="button" class="nav-drawer-close" id="navDrawerClose" aria-label="Close navigation">&times;</button>
+        </div>
+
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about-strategy" class="nav-link">Our Vision</a>
         
-        <!-- Dropdown for Primary & Secondary Wings -->
+        <!-- Dropdown for Primary & Secondary Wings with Mobile Accordion -->
         <div class="nav-dropdown">
           <div class="nav-link nav-dropdown-trigger">
             <span>Our Schools</span>
@@ -100,8 +149,19 @@
 
         <a href="#admissions" class="nav-link">Admissions</a>
         <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#gallery" class="nav-link">Campus Life</a>
         <a href="#news" class="nav-link">News & Events</a>
         <a href="#contact" class="nav-link">Contact</a>
+
+        <!-- Drawer Bottom Action for Mobile -->
+        <div class="nav-drawer-bottom">
+          <a href="#admissions" class="btn btn-gold nav-drawer-cta">
+            <i class="fas fa-paper-plane"></i> Apply for 2026/2027
+          </a>
+          <div style="font-size: 0.8rem; color: #64748b; text-align: center; margin-top: 0.25rem;">
+            <i class="fas fa-phone-alt text-gold"></i> +234 (0) 803 123 4567
+          </div>
+        </div>
       </nav>
 
       <!-- Header Actions -->
@@ -109,7 +169,7 @@
         <a href="#admissions" class="btn btn-gold">
           <i class="fas fa-paper-plane"></i> Apply Now
         </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+        <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -322,48 +382,173 @@
   <section class="admissions-spotlight" id="admissions">
     <div class="container">
       <div class="admissions-card">
-        <!-- Steps to Join -->
+        <!-- Interactive Admissions Hub (Crestfield Pattern) -->
         <div class="admissions-content">
           <span class="section-badge"><i class="fas fa-door-open"></i> Enrolment 2026/2027</span>
           <h3 class="section-title text-left mb-xs">
-            Admissions Now Open
+            The Pathway to <em>Exceptional Learning.</em>
           </h3>
           <p class="section-subtitle text-left mb-md">
             Give your child a firm academic footing. We welcome applications into Creche, Nursery, Primary (Grades 1-6), and Destiny Seed College (JSS1 - SS2).
           </p>
 
-          <div class="admissions-steps">
-            <div class="admissions-step-item">
-              <div class="step-number">1</div>
-              <div class="step-info">
-                <h4>Submit Online Inquiry / Application</h4>
-                <p>Complete the fast digital form to reserve your assessment date and obtain our prospectus.</p>
-              </div>
-            </div>
+          <!-- Crestfield Multi-Tab Navigation -->
+          <div class="admissions-tabs-nav">
+            <button type="button" class="admissions-tab-btn active" data-tab="tab-steps">
+              <i class="fas fa-list-ol"></i> 01. Admission Steps
+            </button>
+            <button type="button" class="admissions-tab-btn" data-tab="tab-requirements">
+              <i class="fas fa-clipboard-check"></i> 02. Entry Requirements
+            </button>
+            <button type="button" class="admissions-tab-btn" data-tab="tab-tuition">
+              <i class="fas fa-coins"></i> 03. Tuition & Value
+            </button>
+            <button type="button" class="admissions-tab-btn" data-tab="tab-faq">
+              <i class="fas fa-question-circle"></i> 04. Admissions FAQ
+            </button>
+          </div>
 
-            <div class="admissions-step-item">
-              <div class="step-number">2</div>
-              <div class="step-info">
-                <h4>Entrance Evaluation & Assessment</h4>
-                <p>A friendly, diagnostic evaluation of numeracy, literacy, and general cognitive development.</p>
+          <!-- Tab 1: Admission Steps -->
+          <div class="tab-pane active" id="tab-steps">
+            <div class="admissions-steps">
+              <div class="admissions-step-item">
+                <div class="step-number">1</div>
+                <div class="step-info">
+                  <h4>Submit Online Inquiry / Application</h4>
+                  <p>Complete the fast digital form to reserve your assessment date and obtain our digital prospectus.</p>
+                </div>
               </div>
-            </div>
-
-            <div class="admissions-step-item">
-              <div class="step-number">3</div>
-              <div class="step-info">
-                <h4>Parent Interview & Formal Offer</h4>
-                <p>Interactive session with the School Management followed by admission confirmation and welcome pack.</p>
+              <div class="admissions-step-item">
+                <div class="step-number">2</div>
+                <div class="step-info">
+                  <h4>Diagnostic Evaluation & Assessment</h4>
+                  <p>A friendly, age-appropriate assessment evaluating literacy, numeracy, and cognitive aptitude.</p>
+                </div>
+              </div>
+              <div class="admissions-step-item">
+                <div class="step-number">3</div>
+                <div class="step-info">
+                  <h4>Parent Interview & Formal Offer</h4>
+                  <p>Interactive session with the School Management followed by letter of admission and enrolment pack.</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="admissions-btn-group">
+          <!-- Tab 2: Entry Requirements -->
+          <div class="tab-pane" id="tab-requirements">
+            <div class="req-grid">
+              <div class="req-card">
+                <div class="req-card-header">
+                  <div class="req-icon-box gold-bg"><i class="fas fa-baby"></i></div>
+                  <h5>Early Years & Primary</h5>
+                </div>
+                <p>Creche (3+ months), Nursery (ages 2-5), and Primary (Grades 1-6).</p>
+                <ul class="req-checklist">
+                  <li><i class="fas fa-check-circle"></i> Child's Birth Certificate / National ID</li>
+                  <li><i class="fas fa-check-circle"></i> Up-to-date Immunisation Record</li>
+                  <li><i class="fas fa-check-circle"></i> 2 Recent Passport Photographs</li>
+                  <li><i class="fas fa-check-circle"></i> Last Academic Term Report (Primary)</li>
+                </ul>
+              </div>
+              <div class="req-card">
+                <div class="req-card-header">
+                  <div class="req-icon-box primary-bg"><i class="fas fa-user-graduate"></i></div>
+                  <h5>Destiny Seed College</h5>
+                </div>
+                <p>Junior Secondary (JSS1 - JSS3) and Senior Secondary (SS1 - SS2).</p>
+                <ul class="req-checklist">
+                  <li><i class="fas fa-check-circle"></i> Primary School Leaving Certificate (JSS1)</li>
+                  <li><i class="fas fa-check-circle"></i> BECE / JSS3 Transcript (for SS1 Intake)</li>
+                  <li><i class="fas fa-check-circle"></i> Satisfactory Entrance Assessment Score</li>
+                  <li><i class="fas fa-check-circle"></i> Reference from previous school</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Tuition & Value -->
+          <div class="tab-pane" id="tab-tuition">
+            <div class="tuition-value-box">
+              <div class="tuition-banner">
+                <div>
+                  <h4>Transparent, All-Inclusive Tuition</h4>
+                  <p>No hidden developmental levies. Tailored flexible termly payment plans available.</p>
+                </div>
+                <span class="tuition-guarantee-pill"><i class="fas fa-shield-alt"></i> Value Protected</span>
+              </div>
+              <div class="tuition-perks-grid">
+                <div class="tuition-perk-item">
+                  <i class="fas fa-users"></i>
+                  <h6>10% Sibling Rebate</h6>
+                  <p>Tuition discount for families enrolling two or more children across wings.</p>
+                </div>
+                <div class="tuition-perk-item">
+                  <i class="fas fa-book-reader"></i>
+                  <h6>Complete Learning Pack</h6>
+                  <p>Textbooks, science lab access, robotics kits, and digital portal included.</p>
+                </div>
+                <div class="tuition-perk-item">
+                  <i class="fas fa-calendar-alt"></i>
+                  <h6>Flexible Termly Plans</h6>
+                  <p>Structured 2-installment payment schedule to support family budgeting.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 4: Admissions FAQ -->
+          <div class="tab-pane" id="tab-faq">
+            <div class="faq-accordion">
+              <div class="faq-item active">
+                <button type="button" class="faq-header">
+                  <span>What is the minimum age requirement for Nursery 1 and JSS 1?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-body">
+                  For Nursery 1, children must turn 3 years old by September of the entry year. For Destiny Seed College (JSS 1), candidates must have completed Grade 6 and attained a minimum age of 10–11 years.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-header">
+                  <span>Can students transfer mid-session into Primary or College?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-body">
+                  Yes. Mid-stream transfers are accepted for select classes subject to space availability and satisfactory diagnostic evaluation results and transcripts from the previous accredited school.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-header">
+                  <span>Do you offer school bus transportation across the city?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-body">
+                  Yes, Destiny Seeds operates safe, air-conditioned school buses with professional drivers, speed governors, and onboard female minders covering all major residential corridors.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-header">
+                  <span>How does Destiny Seeds prepare students for WAEC & Cambridge?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-body">
+                  We integrate British Cambridge standards alongside the Nigerian national curriculum, offering weekend clinic masterclasses, hands-on science lab practicums, and mock diagnostics that guarantee 100% distinction pass rates.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action strip with Prospectus Button -->
+          <div class="admissions-action-strip">
+            <button type="button" class="btn btn-prospectus trigger-prospectus-modal">
+              <i class="fas fa-file-pdf"></i> Download Prospectus
+            </button>
             <a href="#contact" class="btn btn-outline">
-              <i class="fas fa-calendar-alt"></i> Book Campus Tour
+              <i class="fas fa-calendar-alt"></i> Book Tour
             </a>
             <a href="tel:+2348031234567" class="btn btn-primary">
-              <i class="fas fa-headset"></i> Call Admissions Officer
+              <i class="fas fa-phone-alt"></i> Call Officer
             </a>
           </div>
         </div>
@@ -554,6 +739,86 @@
           <p class="achievement-text">
             Destiny Seed Primary Grade 5 pupils emerged victorious at the Regional Interschool Literacy & Spelling Championship, outperforming 42 participating schools.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CAMPUS LIFE & FACILITIES GALLERY (Crestfield Pattern with Lightbox)
+       =================================================================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge"><i class="fas fa-camera-retro"></i> Life on Campus</span>
+        <h2 class="section-title">Where Learning Meets Distinction</h2>
+        <p class="section-subtitle">
+          Take a visual tour through our world-class science labs, vibrant early childhood suites, athletic fields, and modern creative spaces.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="gallery-filter-wrap">
+        <button type="button" class="gallery-filter-btn active" data-filter="all">All Facilities</button>
+        <button type="button" class="gallery-filter-btn" data-filter="stem">Science & STEM Labs</button>
+        <button type="button" class="gallery-filter-btn" data-filter="primary">Primary & Foundation</button>
+        <button type="button" class="gallery-filter-btn" data-filter="sports">Athletics & Campus</button>
+      </div>
+
+      <!-- Gallery Grid with Lightbox Triggers -->
+      <div class="gallery-grid">
+        <div class="gallery-card" data-category="stem">
+          <img src="assets/images/secondary.jpg" alt="Secondary College Advanced Science Laboratory">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag"><i class="fas fa-microscope"></i> STEM & Sciences</span>
+            <h4 class="gallery-card-title">Advanced Science & Robotics Lab</h4>
+            <p class="gallery-card-sub">Destiny Seed College Practical Physics & Chemistry Suite</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="primary">
+          <img src="assets/images/primary.jpg" alt="Vibrant Primary Classroom with Interactive Learning">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag"><i class="fas fa-shapes"></i> Primary Wing</span>
+            <h4 class="gallery-card-title">Early Years & Phonics Studio</h4>
+            <p class="gallery-card-sub">Smart board interactive literacy & foundational numeracy</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="sports">
+          <img src="assets/images/hero.jpg" alt="Destiny Seeds Scholars on Modern Campus Grounds">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag"><i class="fas fa-award"></i> Student Life</span>
+            <h4 class="gallery-card-title">Campus Grounds & Assembly Promenade</h4>
+            <p class="gallery-card-sub">Serene, secure environment fostering leadership and confidence</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="stem">
+          <img src="assets/images/topper_boy.jpg" alt="Academic Distinction and Scholarship Program">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag"><i class="fas fa-user-graduate"></i> Academic Honors</span>
+            <h4 class="gallery-card-title">Distinction Mentorship Clinic</h4>
+            <p class="gallery-card-sub">One-on-one coaching for WAEC, Cambridge & JAMB distinction</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="stem">
+          <img src="assets/images/secondary_card.jpg" alt="Secondary STEM practical experiment">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag"><i class="fas fa-atom"></i> Practical Learning</span>
+            <h4 class="gallery-card-title">Biology & Specimen Investigation</h4>
+            <p class="gallery-card-sub">Hands-on microscope analysis and empirical testing</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="primary">
+          <img src="assets/images/primary_card.jpg" alt="Primary Collaborative Center">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag"><i class="fas fa-palette"></i> Creative Arts</span>
+            <h4 class="gallery-card-title">Collaborative Arts & Music Hall</h4>
+            <p class="gallery-card-sub">Fostering imagination, musical mastery, and teamwork</p>
+          </div>
         </div>
       </div>
     </div>
@@ -895,16 +1160,21 @@
   </footer>
 
   <!-- ===================================================================
-       PROPOSAL PRESENTATION CONTROLLER (FLOATING BADGE FOR MANAGEMENT)
+       NON-OBSTRUCTIVE MANAGEMENT PITCH FAB (COLLAPSIBLE)
        =================================================================== -->
-  <button class="presentation-pill trigger-presentation-modal" title="Open Management Pitch Notes" aria-label="Open Management Pitch Notes">
-    <i class="fas fa-chalkboard-teacher"></i> Management Pitch Notes
-  </button>
+  <div class="presentation-fab-container">
+    <button type="button" class="presentation-fab-btn trigger-presentation-modal" title="Open Management Pitch Deck Notes">
+      <i class="fas fa-chalkboard-teacher"></i> <span>Pitch Notes</span>
+    </button>
+    <button type="button" class="presentation-fab-close" title="Dismiss Floating Button" aria-label="Dismiss Floating Button">&times;</button>
+  </div>
 
-  <!-- MANAGEMENT PROPOSAL EXPLAINER MODAL -->
+  <!-- ===================================================================
+       1. MANAGEMENT PROPOSAL EXPLAINER MODAL
+       =================================================================== -->
   <div class="modal-backdrop" id="presentationModal">
     <div class="modal-card">
-      <button class="modal-close-btn" id="closeModalBtn" title="Close presentation notes" aria-label="Close presentation notes">&times;</button>
+      <button type="button" class="modal-close-btn" id="closeModalBtn" title="Close presentation notes" aria-label="Close presentation notes">&times;</button>
       <span class="modal-header-badge"><i class="fas fa-briefcase"></i> Proposal Presentation Guide</span>
       <h3 class="modal-title">Why A Unified Single Domain is Best for Destiny Seeds</h3>
       <p class="modal-lead-desc">
@@ -948,6 +1218,56 @@
       <div class="modal-note-box">
         <i class="fas fa-info-circle text-primary-dark"></i> <strong>Suggested Domain Names:</strong> 
         <code>destinyseeds.edu.ng</code> (Most prestigious for accredited educational institutions) or <code>destinyseedschools.com</code>.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       2. DIGITAL PROSPECTUS DOWNLOAD MODAL (Crestfield Pattern)
+       =================================================================== -->
+  <div class="modal-backdrop" id="prospectusModal">
+    <div class="prospectus-modal-card">
+      <button type="button" class="modal-close-btn" id="closeProspectusBtn" aria-label="Close prospectus modal">&times;</button>
+      <span class="prospectus-badge"><i class="fas fa-file-pdf"></i> Official 2026/2027 Guide</span>
+      <h3 class="prospectus-title">Download Official School Prospectus</h3>
+      <p class="prospectus-desc">
+        Access comprehensive details on admission cutoffs, British & Nigerian curriculum, tuition schedule, and student life.
+      </p>
+
+      <div class="prospectus-features">
+        <div class="prospectus-feature-item"><i class="fas fa-check-circle"></i> Detailed Primary & College Fee Schedules</div>
+        <div class="prospectus-feature-item"><i class="fas fa-check-circle"></i> Academic Term Calendars & Assessment Formats</div>
+        <div class="prospectus-feature-item"><i class="fas fa-check-circle"></i> Co-Curricular Academies (STEM, Music & Sports)</div>
+      </div>
+
+      <form id="prospectusDownloadForm">
+        <div class="input-field-wrap" style="margin-bottom: 0.85rem;">
+          <input type="text" class="form-control" placeholder="Parent / Guardian Full Name" required>
+        </div>
+        <div class="input-field-wrap" style="margin-bottom: 1.25rem;">
+          <input type="email" class="form-control" placeholder="Email Address for Instant PDF Delivery" required>
+        </div>
+        <button type="submit" class="btn btn-gold w-full">
+          <i class="fas fa-download"></i> Download Prospectus (PDF)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       3. CAMPUS LIFE GALLERY LIGHTBOX MODAL (Crestfield Pattern)
+       =================================================================== -->
+  <div class="lightbox-modal" id="galleryLightboxModal">
+    <div class="lightbox-content-wrap">
+      <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close image">&times;</button>
+      <div class="lightbox-img-holder">
+        <img src="" id="lightboxImg" alt="Campus Preview">
+      </div>
+      <div class="lightbox-caption-bar">
+        <div class="lightbox-caption-text">
+          <h4 id="lightboxTitle">Destiny Seeds Campus</h4>
+          <p id="lightboxSub">Primary & College Excellence</p>
+        </div>
       </div>
     </div>
   </div>
